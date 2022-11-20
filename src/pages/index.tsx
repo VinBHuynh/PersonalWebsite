@@ -196,10 +196,10 @@ text-amber-400/80 transition-all hover:border-amber-400/50 hover:text-amber-500 
 </Link>
 
 const SectionHeader: React.FC<{ text?: string, children?: ReactNode}> = ({ text, children }) => <div>
-  <h1 className="text-2xl text-gray-400 tracking-widest z-10 uppercase">
+  <h2 className="text-2xl text-gray-400 tracking-widest z-10 uppercase">
     {text}
     {children}
-  </h1>
+  </h2>
   <div className="mt-8" />
 </div>
 
