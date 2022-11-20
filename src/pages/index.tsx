@@ -38,8 +38,8 @@ const Home: NextPage = () => {
           <Projects />
         </section>   
         <footer className="sticky bottom-5 z-[1000] w-full">
-        <div className="flex items-center justify-end px-8 py-10">
-          <Link href="#brief">
+        <div className="flex items-center justify-center">
+          <Link aria-label="Top" href="#brief">
             <FaArrowAltCircleUp className="h-10 w-10 cursor-pointer fill-gray-400 
             transition-colors duration-200 hover:fill-gray-300" />
           </Link>
@@ -144,13 +144,13 @@ const Navbar = () => <div className="flex justify-center items-start w-full z-50
       <span className="text-lg transition-colors hover:text-amber-400/50 text-amber-400 animate-pulse">Bao Huynh</span>
     </Link>
     <div className="flex flex-row justify-center items-center">
-      <NavbarItem link="https://github.com/VinBHuynh">
+      <NavbarItem text="Github" link="https://github.com/VinBHuynh">
         <FaGithub className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
       </NavbarItem>
-      <NavbarItem link="https://www.linkedin.com/in/baohuynh12">
+      <NavbarItem text="LinkedIn" link="https://www.linkedin.com/in/baohuynh12">
         <FaLinkedin className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
       </NavbarItem>
-      <NavbarItem link="mailto: bdhuynh@wpi.edu">
+      <NavbarItem text="Gmail" link="mailto: bdhuynh@wpi.edu">
         <SiGmail className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
       </NavbarItem>
     </div>
@@ -159,11 +159,13 @@ const Navbar = () => <div className="flex justify-center items-start w-full z-50
 </div>
 
 const NavbarItem: React.FC<{
+  text: string;
   link: string;
   children: React.ReactNode
-}> = ({ link, children }) => <Link className="group" target="_blank" rel="noopener noreferrer" href={link}>
+}> = ({ text, link, children }) => <Link className="group" aria-label={text} target="_blank" rel="noopener noreferrer" href={link}>
   <button className="flex flex-col items-center justify-center flex-flex-col p-1 group-hover:cursor-pointer group">
     {children}
+    {/* <span className="group-hover:visible invisible">{text}</span> */}
   </button>
 </Link>
 
