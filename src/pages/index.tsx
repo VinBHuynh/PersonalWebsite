@@ -2,8 +2,15 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { trpc } from "../utils/trpc";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import {
+  SiJava,
+  SiJavascript,
+  SiFirebase
+} from "react-icons/si";
 import ProfileImg from "../../public/profile_me.jpg";
 import ZurichImg from "../../public/zurich_me.jpg";
+import WPI from "../../public/WPI_logo.png";
+import C4C from "../../public/C4C_N.jpg";
 import Image from "next/image";
 import { ReactNode } from "react";
 import Link from "next/link";
@@ -39,27 +46,6 @@ const Home: NextPage = () => {
   );
 };
 
-const Article: React.FC<{ children?: ReactNode }> = ({ children }) => <article
-  className="relative w-screen flex flex-col justify-center items-center overflow-hidden text-center min-h-screen gap-2">
-  {children}
-</article>
-
-const InpageSection: React.FC<{href: string, children?: ReactNode}>= ({
-  href,
-  children
-}) => <Link href={href} className="rounded-full border border-[#242424] px-6 py-2 text-md uppercase tracking-widest 
-text-gray-400/80 transition-all hover:border-amber-400/50 hover:text-gray-700 w-[150px] hover:animate-pulse">
-  {children}
-</Link>
-
-const SectionHeader: React.FC<{ text?: string, children?: ReactNode }> = ({ text, children }) => <div>
-  <h1 className="text-2xl text-gray-400 tracking-widest z-10 uppercase">
-    {text}
-    {children}
-  </h1>
-  <div className="mt-8" />
-</div>
-
 const Brief = () => <Article>
   <div className="flex flex-col items-center justify-center">
     {/* Avatar */}
@@ -79,7 +65,7 @@ const Brief = () => <Article>
   <div className="text-2xl tracking-widest z-10 uppercase">
     Software Engineer
   </div>
-  <div className="flex flex-row gap-4 justify-evenly">
+  <div className="flex flex-row justify-evenly">
     <InpageSection href="#about">About</InpageSection>
     <InpageSection href="#experience">Experience</InpageSection>
     <InpageSection href="#projects">Projects</InpageSection>
@@ -90,33 +76,97 @@ const About = () => <Article>
   <SectionHeader> About </SectionHeader>
   <div className="flex flex-row items-center justify-center w-11/12 max-w-screen-lg gap-8">
     {/* Zurich */}
-    <div className="rounded-md w-fit h-fit overflow-hidden flex justify-center">
+    <div className="rounded-md w-fit h-full overflow-hidden flex justify-center">
           <Image className="w-96 object-contain"
             src={ZurichImg}
             alt="zurich" />
     </div>
  
     <div className="text-left w-fit">
-      <div className="text-3xl tracking-widest font-semibold text-amber-400/80"> Greetings~ </div>
-      <div className="max-w-xl text-lg">
-        I am a software engineer from Vietnam. <br></br> 
-        I graduated with a Master degree in Computer Science at Worcester Polytechnic Institute. <br></br>
+      <div className="text-2xl tracking-widest font-semibold text-amber-400/80"> Greetings~ </div>
+      <div className="max-w-xl text-md">
+        I&apos;m Bao Huynh, a software engineer from Vietnam. <br></br> 
         My experience orient toward sofware development with a focus on database integration and data analytics <br></br>
         I love to challenge my skills across multiple fields and thrive to achieve effective products.
       </div>
+      <div className="flex flex-row m-4 justify-start">
+        <LinkSection href="/Resume_bdh_2022.pdf">Resume</LinkSection>
+      </div>
     </div>
-
-
   </div>
-  
 </Article>
 
 const Experience = () => <Article>
   <SectionHeader> Experience </SectionHeader>
+  <OpacityCard>
+    <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-700">Education</div>
+    <Image className="w-96 object-cover object-center xl:h-[100px] xl:w-[300px]"
+      src={WPI}
+      alt="edu logo"/>
+    <div className="px-0 md:px-10">
+        <Link target="_blank" rel="noopener noreferrer" href={"https://www.wpi.edu"} className="text-2xl font-medium text-yellow-500">Worcester Polytechnic Institute</Link>
+        <div className="text-xl">Master of Science in Computer Science</div>
+        <div className="py-4 uppercase text-gray-300">Class of 2023</div>
+    </div>
+  </OpacityCard>
 </Article>
 
-const Projects = () => <Article>
-  <SectionHeader> Projects </SectionHeader>
-</Article>
+const Projects = () => {
+  const stackIcons = [SiJava, SiJavascript, SiFirebase];
+
+  return <Article>
+    <SectionHeader> Projects </SectionHeader>
+    <OpacityCard>
+      <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-red-900">Internship</div>
+      <Image className="w-96 p-4 object-cover object-center xl:h-[150px] xl:w-[350px]"
+        src={C4C}
+        alt="edu logo"/>
+      <div className="px-0 md:px-10">
+          <Link target="_blank" rel="noopener noreferrer" href={"https://changeforchange.io"} className="text-2xl font-medium text-yellow-500">Change for Change</Link>
+          <div className="text-xl">Software Engineer</div>
+          <div className="my-2 flex space-x-2 justify-center">
+          {stackIcons.map((Icon, index) => (
+            <Icon key={index} className="h-10 w-10" />
+          ))}
+        </div>
+      </div>
+    </OpacityCard>
+  </Article>
+}
+
+const Article: React.FC<{ children?: ReactNode }> = ({ children }) => <article
+  className="relative w-screen flex flex-col justify-center items-center overflow-hidden text-center min-h-screen gap-2">
+  {children}
+</article>
+
+const OpacityCard: React.FC<{ children?: ReactNode }> = ({ children }) => <div
+  className="relative flex flex-shrink-0 flex-col items-center space-y-7 overflow-hidden rounded-lg 
+  bg-[#292929] p-10 opacity-40 transition-opacity duration-200 hover:opacity-100 md:w-[600px] xl:w-[900px] max-w-screen-lg">
+  {children}
+</div>
+
+const InpageSection: React.FC<{href: string, children?: ReactNode}>= ({
+  href,
+  children
+}) => <Link href={href} className="rounded-full border border-[#242424] px-6 py-2 text-md uppercase tracking-widest
+text-gray-400/80 transition-all hover:border-amber-400/50 hover:text-gray-700 max-w-[150px] hover:animate-pulse">
+  {children}
+</Link>
+
+const LinkSection: React.FC<{href: string, children?: ReactNode}>= ({
+  href,
+  children
+}) => <Link href={href} className="rounded-full border border-[#242424] px-6 py-2 text-md tracking-widest
+text-amber-400/80 transition-all hover:border-amber-400/50 hover:text-amber-500 max-w-[150px] hover:animate-pulse">
+  {children}
+</Link>
+
+const SectionHeader: React.FC<{ text?: string, children?: ReactNode}> = ({ text, children }) => <div>
+  <h1 className="text-2xl text-gray-400 tracking-widest z-10 uppercase">
+    {text}
+    {children}
+  </h1>
+  <div className="mt-8" />
+</div>
 
 export default Home;
