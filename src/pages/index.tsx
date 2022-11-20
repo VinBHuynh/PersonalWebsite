@@ -76,8 +76,8 @@ const Brief = () => <Article>
   </div>
 </Article> 
 
-const About = () => <Article>
-  <SectionHeader> About </SectionHeader>
+const About = () => <Article header="About">
+  {/* <SectionHeader> About </SectionHeader> */}
   <div className="flex flex-row items-center justify-center w-11/12 max-w-screen-lg gap-8">
     {/* Zurich */}
     <div className="rounded-md w-fit h-full overflow-hidden flex justify-center">
@@ -100,8 +100,8 @@ const About = () => <Article>
   </div>
 </Article>
 
-const Experience = () => <Article>
-  <SectionHeader> Experience </SectionHeader>
+const Experience = () => <Article header="Experience">
+  {/* <SectionHeader> Experience </SectionHeader> */}
   <OpacityCard>
     <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-700 text-white">Education</div>
     <Image className="w-96 object-cover object-center xl:h-[100px] xl:w-[300px]"
@@ -118,8 +118,8 @@ const Experience = () => <Article>
 const Projects = () => {
   const stackIcons = [SiJava, SiJavascript, SiFirebase];
 
-  return <Article>
-    <SectionHeader> Projects </SectionHeader>
+  return <Article header="Projects">
+    {/* <SectionHeader> Projects </SectionHeader> */}
     <OpacityCard>
       <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-red-600 text-white">Internship</div>
       <Image className="w-96 p-4 object-cover object-center xl:h-[150px] xl:w-[350px]"
@@ -168,8 +168,9 @@ const NavbarItem: React.FC<{
   {children}
 </Link>
 
-const Article: React.FC<{ children?: ReactNode }> = ({ children }) => <article
+const Article: React.FC<{ header?:string, children?: ReactNode }> = ({ header, children }) => <article
   className="relative w-screen flex flex-col justify-center items-center overflow-hidden text-center min-h-screen gap-2">
+  <SectionHeader>{header}</SectionHeader>
   {children}
 </article>
 
