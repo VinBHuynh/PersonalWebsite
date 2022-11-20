@@ -25,21 +25,18 @@ const Home: NextPage = () => {
         snap-y snap-mandatory antialiased text-gray-400 bg-[rgb(36,36,36)]  
         scrollbar-thin scrollbar-track-[rgb(36,36,36)] scrollbar-thumb-amber-400/50">
         <Navbar />
-        <section id="brief" className="snap-start">
+        <div id="brief" className="snap-start">
           <Brief /> 
-        </section>
-        <section id="about" className="snap-start">
-          <SectionHeader>About</SectionHeader>
+        </div>
+        <div id="about" className="snap-start">
           <About />
-        </section>
-        <section id="experience" className="snap-start">
-        <SectionHeader>Experience</SectionHeader>
+        </div>
+        <div id="experience" className="snap-start">
           <Experience />
-        </section>
-        <section id="projects" className="snap-start">
-          <SectionHeader>Projects</SectionHeader>
+        </div>
+        <div id="projects" className="snap-start">
           <Projects />
-        </section>   
+        </div>   
         <footer className="sticky bottom-5 z-[1000] w-full">
         <div className="flex items-center justify-center py-8">
           <Link aria-label="Top" href="#brief">
@@ -79,7 +76,7 @@ const Brief = () => <Article>
   </div>
 </Article> 
 
-const About = () => <Article>
+const About = () => <Article header="About">
   {/* <SectionHeader> About </SectionHeader> */}
   <div className="flex flex-row items-center justify-center w-11/12 max-w-screen-lg gap-8">
     {/* Zurich */}
@@ -90,7 +87,7 @@ const About = () => <Article>
     </div>
  
     <div className="text-left w-fit">
-      <div className="text-2xl tracking-widest font-semibold text-amber-400/80"> Greetings~ </div>
+      <div className="text-2xl tracking-widest font-semibold text-amber-400/80">Greetings~</div>
       <div className="max-w-xl text-md">
         I&apos;m Bao Huynh, a software engineer from Vietnam. <br></br> 
         My experience orient toward sofware development with a focus on database integration and data analytics <br></br>
@@ -103,7 +100,7 @@ const About = () => <Article>
   </div>
 </Article>
 
-const Experience = () => <Article>
+const Experience = () => <Article header="Experience">
   {/* <SectionHeader> Experience </SectionHeader> */}
   <OpacityCard>
     <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-700 text-white">Education</div>
@@ -111,7 +108,8 @@ const Experience = () => <Article>
       src={WPI}
       alt="edu logo"/>
     <div className="px-0 md:px-10">
-        <Link target="_blank" rel="noopener noreferrer" href={"https://www.wpi.edu"} className="text-2xl font-medium text-yellow-500">Worcester Polytechnic Institute</Link>
+        <Link target="_blank" rel="noopener noreferrer" href={"https://www.wpi.edu"} 
+        className="text-2xl font-medium text-yellow-500 hover:text-amber-400/50">Worcester Polytechnic Institute</Link>
         <div className="text-xl">Master of Science in Computer Science</div>
         <div className="py-4 uppercase text-gray-300">Class of 2023</div>
     </div>
@@ -121,7 +119,7 @@ const Experience = () => <Article>
 const Projects = () => {
   const stackIcons = [SiJava, SiJavascript, SiFirebase];
 
-  return <Article>
+  return <Article header="Projects">
     {/* <SectionHeader> Projects </SectionHeader> */}
     <OpacityCard>
       <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-red-600 text-white">Internship</div>
@@ -129,7 +127,8 @@ const Projects = () => {
         src={C4C}
         alt="edu logo"/>
       <div className="px-0 md:px-10">
-          <Link target="_blank" rel="noopener noreferrer" href={"https://changeforchange.io"} className="text-2xl font-medium text-yellow-500">Change for Change</Link>
+          <Link target="_blank" rel="noopener noreferrer" href={"https://changeforchange.io"} 
+          className="text-2xl font-medium text-yellow-500 hover:text-amber-400/50">Change for Change</Link>
           <div className="text-xl">Software Engineer</div>
           <div className="my-2 flex space-x-2 justify-center">
           {stackIcons.map((Icon, index) => (
@@ -171,8 +170,9 @@ const NavbarItem: React.FC<{
   {children}
 </Link>
 
-const Article: React.FC<{ children?: ReactNode }> = ({ children }) => <article
+const Article: React.FC<{ header?:string, children?: ReactNode }> = ({ header, children }) => <article
   className="relative w-screen flex flex-col justify-center items-center overflow-hidden text-center min-h-screen gap-2">
+  <SectionHeader>{header}</SectionHeader>
   {children}
 </article>
 
