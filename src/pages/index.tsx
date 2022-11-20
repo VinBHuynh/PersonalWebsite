@@ -50,7 +50,7 @@ const Home: NextPage = () => {
   );
 };
 
-const Brief = () => <Article>
+const Brief = () => <div className="relative w-screen flex flex-col justify-center items-center overflow-hidden text-center min-h-screen gap-2">
   <div className="flex flex-col items-center justify-center">
     {/* Avatar */}
     <div className="rounded-full w-64 h-64 overflow-hidden flex justify-center">
@@ -74,7 +74,7 @@ const Brief = () => <Article>
     <InpageSection href="#experience">Experience</InpageSection>
     <InpageSection href="#projects">Projects</InpageSection>
   </div>
-</Article> 
+</div> 
 
 const About = () => <Article header="About">
   {/* <SectionHeader> About </SectionHeader> */}
@@ -198,7 +198,7 @@ text-amber-400/80 transition-all hover:border-amber-400/50 hover:text-amber-500 
   {children}
 </Link>
 
-const SectionHeader: React.FC<{children: ReactNode}> = ({ children }) => <div>
+const SectionHeader: React.FC<{children?: ReactNode}> = ({ children }) => <div>
   <h1 className="text-2xl text-gray-400 tracking-widest z-10 uppercase">
     {children}
   </h1>
