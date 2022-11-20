@@ -145,13 +145,13 @@ const Navbar = () => <div className="flex justify-center items-start w-full z-50
     </Link>
     <div className="flex flex-row justify-center items-center">
       <NavbarItem text="Github" link="https://github.com/VinBHuynh">
-        <FaGithub aria-label="Top" className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
+        <FaGithub aria-label="Github" />
       </NavbarItem>
       <NavbarItem text="LinkedIn" link="https://www.linkedin.com/in/baohuynh12">
-        <FaLinkedin aria-label="Top" className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
+        <FaLinkedin aria-label="LinkedIn" />
       </NavbarItem>
       <NavbarItem text="Gmail" link="mailto:bdhuynh@wpi.edu">
-        <SiGmail aria-label="Top" className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
+        <SiGmail aria-label="Gmail" />
       </NavbarItem>
     </div>
     
@@ -162,11 +162,10 @@ const NavbarItem: React.FC<{
   text: string;
   link: string;
   children: React.ReactNode
-}> = ({ text, link, children }) => <Link className="group" aria-label={text} target="_blank" rel="noopener noreferrer" href={link}>
-  <button className="flex flex-col items-center justify-center flex-flex-col p-1 group-hover:cursor-pointer group">
-    {children}
-    {/* <span className="group-hover:visible invisible">{text}</span> */}
-  </button>
+}> = ({ text, link, children }) => <Link 
+  className="group h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" 
+  aria-label={text} target="_blank" rel="noopener noreferrer" href={link}>
+  {children}
 </Link>
 
 const Article: React.FC<{ children?: ReactNode }> = ({ children }) => <article
