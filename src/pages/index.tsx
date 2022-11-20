@@ -39,7 +39,7 @@ const Home: NextPage = () => {
         </section>   
         <footer className="sticky bottom-5 z-[1000] w-full">
         <div className="flex items-center justify-center py-8">
-          <Link title="Top" href="#brief">
+          <Link aria-label="Top" title="Top" href="#brief">
             <FaArrowAltCircleUp className="h-10 w-10 cursor-pointer fill-gray-400 
             transition-colors duration-200 hover:fill-gray-300" />
           </Link>
@@ -103,7 +103,7 @@ const About = () => <Article>
 const Experience = () => <Article>
   <SectionHeader> Experience </SectionHeader>
   <OpacityCard>
-    <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-500 text-white">Education</div>
+    <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-700 text-white">Education</div>
     <Image className="w-96 object-cover object-center xl:h-[100px] xl:w-[300px]"
       src={WPI}
       alt="edu logo"/>
@@ -150,7 +150,7 @@ const Navbar = () => <div className="flex justify-center items-start w-full z-50
       <NavbarItem text="LinkedIn" link="https://www.linkedin.com/in/baohuynh12">
         <FaLinkedin className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
       </NavbarItem>
-      <NavbarItem text="Gmail" link="mailto: bdhuynh@wpi.edu">
+      <NavbarItem text="Gmail" link="mailto:bdhuynh@wpi.edu">
         <SiGmail className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
       </NavbarItem>
     </div>
@@ -162,7 +162,7 @@ const NavbarItem: React.FC<{
   text: string;
   link: string;
   children: React.ReactNode
-}> = ({ text, link, children }) => <Link className="group" title={text} target="_blank" rel="noopener noreferrer" href={link}>
+}> = ({ text, link, children }) => <Link className="group" aria-label={text} title={text} target="_blank" rel="noopener noreferrer" href={link}>
   <button className="flex flex-col items-center justify-center flex-flex-col p-1 group-hover:cursor-pointer group">
     {children}
     {/* <span className="group-hover:visible invisible">{text}</span> */}
