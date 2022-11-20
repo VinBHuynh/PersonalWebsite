@@ -1,15 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { trpc } from "../utils/trpc";
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import {
-  SiJava,
-  SiJavascript,
-  SiFirebase
-} from "react-icons/si";
+import { FaGithub, FaLinkedin, FaArrowAltCircleUp } from 'react-icons/fa';
+import { SiJava, SiJavascript, SiFirebase, SiGmail } from "react-icons/si";
 import ProfileImg from "../../public/profile_me.jpg";
 import ZurichImg from "../../public/zurich_me.jpg";
-import WPI from "../../public/WPI_logo.png";
+import WPI from "../../public/WPI.png";
 import C4C from "../../public/C4C_N.jpg";
 import Image from "next/image";
 import { ReactNode } from "react";
@@ -28,7 +24,7 @@ const Home: NextPage = () => {
       <main className="flex flex-col h-screen overflow-x-hidden overflow-y-scroll
         snap-y snap-mandatory antialiased text-gray-400 bg-[rgb(36,36,36)]  
         scrollbar-thin scrollbar-track-[rgb(36,36,36)] scrollbar-thumb-amber-400/50">
-        {/* <Navbar /> */}
+        <Navbar />
         <section id="brief" className="snap-start">
           <Brief /> 
         </section>
@@ -40,7 +36,15 @@ const Home: NextPage = () => {
         </section>
         <section id="projects" className="snap-start">
           <Projects />
-        </section>
+        </section>   
+        <footer className="sticky bottom-5 z-[1000] w-full">
+        <div className="flex items-center justify-end px-8">
+          <Link href="#brief">
+            <FaArrowAltCircleUp className="h-10 w-10 cursor-pointer fill-gray-400 
+            transition-colors duration-200 hover:fill-gray-300" />
+          </Link>
+        </div>
+      </footer>
       </main>
     </>
   );
@@ -133,6 +137,35 @@ const Projects = () => {
     </OpacityCard>
   </Article>
 }
+
+const Navbar = () => <div className="flex justify-center items-start w-full z-50 sticky top-4 left-0 h-8">
+  <div className="w-11/12 max-w-screen-lg flex items-center gap-4">
+    <Link href="#brief">
+      <span className="text-lg transition-colors hover:text-amber-400/50 text-amber-400 animate-pulse">Bao Huynh</span>
+    </Link>
+    <div className="flex flex-row justify-center items-center">
+      <NavbarItem link="https://github.com/VinBHuynh">
+        <FaGithub className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
+      </NavbarItem>
+      <NavbarItem link="https://www.linkedin.com/in/baohuynh12">
+        <FaLinkedin className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
+      </NavbarItem>
+      <NavbarItem link="mailto: bdhuynh@wpi.edu">
+        <SiGmail className={"h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300;"} />
+      </NavbarItem>
+    </div>
+    
+  </div>
+</div>
+
+const NavbarItem: React.FC<{
+  link: string;
+  children: React.ReactNode
+}> = ({ link, children }) => <Link className="group" target="_blank" rel="noopener noreferrer" href={link}>
+  <button className="flex flex-col items-center justify-center flex-flex-col p-1 group-hover:cursor-pointer group">
+    {children}
+  </button>
+</Link>
 
 const Article: React.FC<{ children?: ReactNode }> = ({ children }) => <article
   className="relative w-screen flex flex-col justify-center items-center overflow-hidden text-center min-h-screen gap-2">
