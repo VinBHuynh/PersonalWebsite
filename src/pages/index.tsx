@@ -145,13 +145,13 @@ const Navbar = () => <div className="flex justify-center items-start w-full z-50
     </Link>
     <div className="flex flex-row justify-center items-center">
       <NavbarItem text="Github" link="https://github.com/VinBHuynh">
-        <FaGithub aria-label="Github" />
+        <FaGithub aria-label="Github" className="transition-colors hover:fill-gray-700" />
       </NavbarItem>
       <NavbarItem text="LinkedIn" link="https://www.linkedin.com/in/baohuynh12">
-        <FaLinkedin aria-label="LinkedIn" />
+        <FaLinkedin aria-label="LinkedIn" className="transition-colors hover:fill-gray-700" />
       </NavbarItem>
       <NavbarItem text="Gmail" link="mailto:bdhuynh@wpi.edu">
-        <SiGmail aria-label="Gmail" />
+        <SiGmail aria-label="Gmail" className="transition-colors hover:fill-gray-700" />
       </NavbarItem>
     </div>
     
@@ -163,7 +163,7 @@ const NavbarItem: React.FC<{
   link: string;
   children: React.ReactNode
 }> = ({ text, link, children }) => <Link 
-  className="group h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" 
+  className="group h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl" 
   aria-label={text} target="_blank" rel="noopener noreferrer" href={link}>
   {children}
 </Link>
