@@ -38,8 +38,8 @@ const Home: NextPage = () => {
           <Projects />
         </section>   
         <footer className="sticky bottom-5 z-[1000] w-full">
-        <div className="flex items-center justify-center">
-          <Link aria-label="Top" href="#brief">
+        <div className="flex items-center justify-center py-8">
+          <Link title="Top" href="#brief">
             <FaArrowAltCircleUp className="h-10 w-10 cursor-pointer fill-gray-400 
             transition-colors duration-200 hover:fill-gray-300" />
           </Link>
@@ -103,7 +103,7 @@ const About = () => <Article>
 const Experience = () => <Article>
   <SectionHeader> Experience </SectionHeader>
   <OpacityCard>
-    <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-700">Education</div>
+    <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-500 text-white">Education</div>
     <Image className="w-96 object-cover object-center xl:h-[100px] xl:w-[300px]"
       src={WPI}
       alt="edu logo"/>
@@ -121,7 +121,7 @@ const Projects = () => {
   return <Article>
     <SectionHeader> Projects </SectionHeader>
     <OpacityCard>
-      <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-red-900">Internship</div>
+      <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-red-600 text-white">Internship</div>
       <Image className="w-96 p-4 object-cover object-center xl:h-[150px] xl:w-[350px]"
         src={C4C}
         alt="edu logo"/>
@@ -162,7 +162,7 @@ const NavbarItem: React.FC<{
   text: string;
   link: string;
   children: React.ReactNode
-}> = ({ text, link, children }) => <Link className="group" aria-label={text} target="_blank" rel="noopener noreferrer" href={link}>
+}> = ({ text, link, children }) => <Link className="group" title={text} target="_blank" rel="noopener noreferrer" href={link}>
   <button className="flex flex-col items-center justify-center flex-flex-col p-1 group-hover:cursor-pointer group">
     {children}
     {/* <span className="group-hover:visible invisible">{text}</span> */}
