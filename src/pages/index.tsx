@@ -184,7 +184,7 @@ const InpageSection: React.FC<{href: string, children?: ReactNode}>= ({
   href,
   children
 }) => <Link href={href} className="rounded-full border border-[#242424] px-6 py-2 text-md uppercase tracking-widest
-text-gray-400/80 transition-all hover:border-amber-400/50 hover:text-gray-700 max-w-[150px] hover:animate-pulse">
+text-gray-400/80 transition-all hover:border-amber-400/50 hover:text-gray-700 w-[150px] hover:animate-pulse">
   {children}
 </Link>
 
