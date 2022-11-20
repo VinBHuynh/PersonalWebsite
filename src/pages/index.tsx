@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           <Projects />
         </section>   
         <footer className="sticky bottom-5 z-[1000] w-full">
-        <div className="flex items-center justify-end px-9 py-[38px]">
+        <div className="flex items-center justify-end px-8 py-10">
           <Link href="#brief">
             <FaArrowAltCircleUp className="h-10 w-10 cursor-pointer fill-gray-400 
             transition-colors duration-200 hover:fill-gray-300" />
