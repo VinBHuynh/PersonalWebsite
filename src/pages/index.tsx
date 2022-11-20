@@ -29,12 +29,15 @@ const Home: NextPage = () => {
           <Brief /> 
         </section>
         <section id="about" className="snap-start">
+          <SectionHeader>About</SectionHeader>
           <About />
         </section>
         <section id="experience" className="snap-start">
+        <SectionHeader>Experience</SectionHeader>
           <Experience />
         </section>
         <section id="projects" className="snap-start">
+          <SectionHeader>Projects</SectionHeader>
           <Projects />
         </section>   
         <footer className="sticky bottom-5 z-[1000] w-full">
@@ -76,7 +79,7 @@ const Brief = () => <Article>
   </div>
 </Article> 
 
-const About = () => <Article header="About">
+const About = () => <Article>
   {/* <SectionHeader> About </SectionHeader> */}
   <div className="flex flex-row items-center justify-center w-11/12 max-w-screen-lg gap-8">
     {/* Zurich */}
@@ -100,7 +103,7 @@ const About = () => <Article header="About">
   </div>
 </Article>
 
-const Experience = () => <Article header="Experience">
+const Experience = () => <Article>
   {/* <SectionHeader> Experience </SectionHeader> */}
   <OpacityCard>
     <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-sky-700 text-white">Education</div>
@@ -118,7 +121,7 @@ const Experience = () => <Article header="Experience">
 const Projects = () => {
   const stackIcons = [SiJava, SiJavascript, SiFirebase];
 
-  return <Article header="Projects">
+  return <Article>
     {/* <SectionHeader> Projects </SectionHeader> */}
     <OpacityCard>
       <div className="absolute right-7 top-4 rounded-lg bg-accent-500 p-4 bg-red-600 text-white">Internship</div>
@@ -168,9 +171,8 @@ const NavbarItem: React.FC<{
   {children}
 </Link>
 
-const Article: React.FC<{ header?:string, children?: ReactNode }> = ({ header, children }) => <article
+const Article: React.FC<{ children?: ReactNode }> = ({ children }) => <article
   className="relative w-screen flex flex-col justify-center items-center overflow-hidden text-center min-h-screen gap-2">
-  <SectionHeader>{header}</SectionHeader>
   {children}
 </article>
 
@@ -196,11 +198,11 @@ text-amber-400/80 transition-all hover:border-amber-400/50 hover:text-amber-500 
   {children}
 </Link>
 
-const SectionHeader: React.FC<{ text?: string, children?: ReactNode}> = ({ text, children }) => 
-  <h1 className="text-2xl text-gray-400 tracking-widest z-10 uppercase">
-    {text}
+const SectionHeader: React.FC<{children?: ReactNode}> = ({ children }) => <div>
+  <h2 className="text-2xl text-gray-400 tracking-widest z-10 uppercase">
     {children}
-    <div className="mt-8" />
-  </h1>
+  </h2>
+  <div className="mt-8" />
+</div>
 
 export default Home;
