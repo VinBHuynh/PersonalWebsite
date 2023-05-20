@@ -94,7 +94,7 @@ const About = () => <Article header="About">
         I love to challenge my skills across multiple fields and thrive to achieve effective products.
       </div>
       <div className="flex flex-row m-4 justify-start">
-        <LinkSection href="/Resume_bdh_2022.pdf">Resume</LinkSection>
+        <LinkSection href="/Resume_bdh.pdf">Resume</LinkSection>
       </div>
     </div>
   </div>
